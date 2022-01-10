@@ -29,15 +29,15 @@ client.on("ready", () => {
     if(message.author.id == member.user.id)
     return message.reply("You can't give yourself a rep");
 
-    var rep = db.fetch(`${member.user.id}`);
+    var rep = db.fetch(member.user.id);
 
     if(!rep) {
-        db.set(`${member.user.id}`, 1);
+        db.set(member.user.id, 1);
     }
 
     const newrep = Math.floor(Math.floor(rep) + Math.floor(1));
 
-    db.set(`${member.user.id}`, newrep);
+    db.set(member.user.id, newrep);
 
     }
 
@@ -46,7 +46,7 @@ client.on("ready", () => {
 
         if(!member)
         return message.reply("Please mention a valid user of this server.");
-        var rep = db.fetch(`${member.user.id}`);
+        var rep = db.fetch(member.user.id);
 
 
         if(!rep) 
